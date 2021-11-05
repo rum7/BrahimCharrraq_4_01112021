@@ -5,6 +5,7 @@ body {
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-display: swap;
 }
 
 a,
@@ -516,7 +517,6 @@ button {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    opacity: 0;
     z-index: 500;
     transition: all .3s ease-in-out;
 }
@@ -532,8 +532,10 @@ button {
 
 a[data-lightbox] {
     position: relative;
-    display: block;
+    display: flex;
     text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 a[data-lightbox]:hover::before {
@@ -542,16 +544,16 @@ a[data-lightbox]:hover::before {
     font-size: 32px;
     width: 50px;
     height: 50px;
-    margin-left: -25px;
+    /* margin-left: -25px; */
     border-radius: 50%;
     background: rgba(0, 0, 0, .6);
     color: #FFF;
     font-weight: 100;
     z-index: 1;
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
+    /* top: 50%; */
+    /* transform: translateY(-50%); */
+    /* -webkit-transform: translateY(-50%); */
 }
 
 a[data-lightbox]:hover img {
@@ -676,6 +678,27 @@ a {
     margin: auto auto auto auto;
 }
 
+.introduction, .quote, .sous-titre {
+    /* white-space: pre-line; */
+    font-family: "helvetica";
+}
+
+.introduction {
+    padding: 0 6em;
+    font-size: 22px;
+    line-height: 1.4em;
+
+}
+
+.quote {
+    margin: 0;
+    padding: 0 2em;
+	font-size: 20px;
+	font-style: italic;
+    border: none;
+	color: #575757;
+}
+
 p {
     font-size: 11px;
 }
@@ -701,7 +724,24 @@ p {
 
 .social {
     max-width: 400px;
-    margin: auto auto auto auto;
+    margin: 20px auto 40px;
+}
+
+.social a span {
+    color: #424242!important;
+}
+
+.social a:hover span {
+    color: #000000!important;
+}
+
+
+div.footer-links h3 {
+    font-size: 14px;
+    text-transform: none;
+    font-weight: 700;
+    color: #424242!important;
+    margin: 0 0 5px;
 }
 
 h2 {
@@ -775,17 +815,23 @@ h4 {
 }
 
 .tc-white {
-    color: #F3976C!important;
+    /* color: #F3976C!important; */
+    color: #fce1d5!important;
+
+}
+
+.a-propos h1, .a-propos p {
+    color: #3f3f3f!important;
 }
 
 .btn-atomic-tangerine {
     background: #F3976C;
-    color: #FFFFFF!important;
+    color: #3f3f3f!important;
 }
 
 .btn-atomic-tangerine:hover {
     background: #c27956!important;
-    color: #FFFFFF!important;
+    color: #3f3f3f!important;
 }
 
 .ltc-white {
@@ -848,13 +894,13 @@ h4 {
     }
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .b-parallax {
         background-attachment: scroll;
     }
 }
 
-@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 1.5) {
+@media only screen and (min-width: 1024px) and (max-width: 1366px) and (-webkit-min-device-pixel-ratio: 1.5) {
     .b-parallax {
         background-attachment: scroll;
     }
@@ -873,8 +919,8 @@ h4 {
         position: relative;
     }
     .bloc {
-        padding-left: constant(safe-area-inset-left);
-        padding-right: constant(safe-area-inset-right);
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
     }
     .bloc-group,
     .bloc-group .bloc {
@@ -884,8 +930,8 @@ h4 {
     .bloc-fill-screen .fill-bloc-top-edge,
     .bloc-fill-screen .fill-bloc-bottom-edge {
         padding: 0 20px;
-        padding-left: constant(safe-area-inset-left);
-        padding-right: constant(safe-area-inset-right);
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
     }
 }
 
@@ -1028,15 +1074,31 @@ h4 {
     }
 }
 
+@media (max-width: 767px) {
+    .bloc-mob-center-text {
+        text-align: center;
+    }
+    .col-sm-6 {
+        width: 50%;
+        float: left;
+    }
+    .col-sm-3 {
+        width: 25%;
+        float: left;
+    }
+}
+
+@media (max-width: 600px) {
+    .col-sm-6 {
+        width: 100%;
+        float: none;
+        margin-bottom: 50px;
+    }
+}
+
 @media (max-width: 400px) {
     .bloc {
         padding-left: 0;
         padding-right: 0;
-    }
-}
-
-@media (max-width: 767px) {
-    .bloc-mob-center-text {
-        text-align: center;
     }
 }
